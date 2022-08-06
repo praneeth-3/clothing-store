@@ -10,7 +10,7 @@ const ProductCard = ({product}) => {
         addItemToCart(product);
     };
     return (
-        <ProductCartContainer>
+        <ProductCartContainer data-test-id="productCard">
             <img src={imageUrl} alt={name} />
             <Footer>
                 <Name>{name}</Name>

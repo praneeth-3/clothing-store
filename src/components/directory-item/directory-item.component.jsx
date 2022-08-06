@@ -6,7 +6,7 @@ const DirectoryItem = ({category}) => {
     const naigate = useNavigate();
     const onNavigateHandler = ()=> naigate(route);
     return (
-        <DirectoryItemContainer onClick={onNavigateHandler}>
+        <DirectoryItemContainer data-test-id="category" onClick={onNavigateHandler}>
           <BackgroundImg imageUrl={imageUrl} />
           <Body>
             <h2>{title}</h2>

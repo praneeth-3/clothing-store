@@ -1,4 +1,5 @@
-import { createContext, useState, useEffect } from "react";
+import { useContext, createContext, useState, useEffect } from "react";
+import { UserContext } from "./user.context";
 
 export const CartContext = createContext({
     isCartOpen: false,
@@ -58,6 +59,7 @@ export const CartProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([]);
     const [cartCount, setCartCount] = useState(0);
     const [cartTotal, setCartTotal] = useState(0);
+    const {currentUser} = useContext(UserContext);
 
     useEffect(()=>{
         const newCartCount = cartItems.reduce((total, cartItem)=> total+cartItem.quantity, 0);
@@ -68,7 +70,10 @@ export const CartProvider = ({ children }) => {
         setCartTotal(newCartTotal);
     }, [cartItems]);
     const addItemToCart = (productToAdd)=>{
-        setCartItems(addCartItem(cartItems, productToAdd));
+        if(currentUser)
+            setCartItems(addCartItem(cartItems, productToAdd));
+        else
+            alert("Please login to add items to cart");
     }
     const removeItemFromCart = (productToRemove)=>{
         setCartItems(removeCartItem(cartItems, productToRemove));
@@ -76,8 +81,11 @@ export const CartProvider = ({ children }) => {
     const clearItemFromCart = (productToRemove)=>{
         setCartItems(clearCartItem(cartItems, productToRemove));
     }
+    const clearAllCartItems = ()=>{
+        setCartItems([]);
+    }
     return (
-        <CartContext.Provider value={{ isCartOpen, setIsCartOpen, cartItems, addItemToCart, removeItemFromCart, clearItemFromCart, cartCount, cartTotal }}>
+        <CartContext.Provider value={{ isCartOpen, setIsCartOpen, cartItems, addItemToCart, removeItemFromCart, clearItemFromCart, clearAllCartItems, cartCount, cartTotal }}>
             {children}
         </CartContext.Provider>
     );

@@ -9,7 +9,7 @@ const CartIcon = ()=>{
     return (
         <CartIconContainer onClick={handleCartClick}>
             <ShoppingIcon />
-            <ItemCount>{cartCount}</ItemCount>
+            <ItemCount data-test-id='cart-item-count'>{cartCount}</ItemCount>
         </CartIconContainer>
     )
 }

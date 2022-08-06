@@ -53,14 +53,16 @@ const SignInForm = () => {
             <span>Sign in with your email and password</span>
             <form onSubmit={handleSubmit}>
                 <FormInput
+                    data-test-id='sign-in-email'
                     label='Email'
-                    type='text'
+                    type='email'
                     required
                     onChange={handleChange}
                     name='email'
                     value={email} />
 
                 <FormInput
+                    data-test-id='sign-in-password'
                     label='Password'
                     type='password'
                     required
@@ -69,9 +71,9 @@ const SignInForm = () => {
                     value={password} />
                 
                 <ButtonsContainer>
-                    <Button type="submit">SIGN IN</Button>
+                    <Button data-test-id='sign-in-button' type="submit">SIGN IN</Button>
 
-                    <Button type="button" buttonType={BUTTON_TYPE_CLASS.google} onClick={signInWithGoogle}>
+                    <Button data-test-id='google-sign-in-button' type="button" buttonType={BUTTON_TYPE_CLASS.google} onClick={signInWithGoogle}>
                         GOOGLE SIGN IN
                     </Button>
                 </ButtonsContainer>
