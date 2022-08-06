@@ -103,6 +103,6 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 
 export const signOutUser = async () => await signOut(auth);
 export const onAuthUserChangedListener = async (callback) => {
-    if(!callback) throw "Callback Required Error";
+    // if(!callback) throw "Callback Required Error";
     return onAuthStateChanged(auth, callback);
 }
