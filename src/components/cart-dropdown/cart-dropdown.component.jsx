@@ -12,8 +12,8 @@ const CartDropdown = () => {
         navigate('/checkout');
     }
     return (
-        <CartDropDownContainer>
-            <CartItems>
+        <CartDropDownContainer data-test-id="cart-drop-down">
+            <CartItems data-test-id="cart-items">
                 {cartItems.map((item) => (
                     <CartItem key={item.name} cartItem={item} />
                 ))}

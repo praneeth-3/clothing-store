@@ -6,7 +6,7 @@ import { useContext } from 'react';
 const Checkout = () => {
     const { cartItems, cartTotal } = useContext(CartContext);
     return (
-        <CheckoutContainer>
+        <CheckoutContainer data-test-id="checkout-container">
             <CheckoutHeader>
                 <HeaderBlock>Product</HeaderBlock>
                 <HeaderBlock>Description</HeaderBlock>

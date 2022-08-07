@@ -15,7 +15,7 @@ const CheckoutItem = ({ cartItem }) => {
         clearItemFromCart({id: cartItem.id});
     }
     return (
-        <CheckoutItemContainer>
+        <CheckoutItemContainer data-test-id="checkout-item">
             <ImageContainer>
                 <StyledImg src={imageUrl} alt={name} />
             </ImageContainer>
